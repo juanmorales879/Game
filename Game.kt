@@ -47,6 +47,13 @@ private fun castFireball(numFireballs:Int = 2){
     println("A glass of fireball springs into existence (x$numFireballs)")
 }
 
+private fun auraColorSingleExpression(isBlessed: Boolean,
+                      healthPoints: Int,
+                      isImmortal: Boolean): String =
+    if (isBlessed && healthPoints > 50 || isImmortal) "Green"
+    else "None"
+
+
 /*
 Single expression functions
 private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean) =
