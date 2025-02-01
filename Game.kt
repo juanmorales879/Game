@@ -45,7 +45,17 @@ private fun auraColor(isBlessed: Boolean,
 
 private fun castFireball(numFireballs:Int = 2){
     val inebration = (0..50).random()
-    println("A glass of fireball springs into existence (x$numFireballs), inebration level: $inebration")
+    val inebrationStatus = when (inebration){
+        in 1..10 -> "Tipsy"
+        in 11..20 -> "Sloshed"
+        in 21..30 -> "Soused"
+        in 31..40 -> "Stewed"
+        in 41..50 -> "t0at3d"
+        else -> "No inebration"
+    }
+    println("A glass of fireball springs into existence (x$numFireballs), inebration level: $inebration, inebration status: $inebrationStatus")
+
+
 }
 
 private fun auraColorSingleExpression(isBlessed: Boolean,
