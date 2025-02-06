@@ -24,13 +24,13 @@ fun main(){
 
 fun proficiencyCheck (swords:Int?){
     swords?: throw UnskilledSwordJugglerException()
-    //checkNotNull(swordsJuggling, { "Player cannot juggle swords" })
+    // Option 2 for throwing exceptions: checkNotNull(swordsJuggling, { "Player cannot juggle swords" })
 }
 
 fun juggleSwords(swordsJuggling: Int) {
     require(swordsJuggling >= 3, { "Juggle at least 3 swords to be exciting." })
 // Juggle
 }
-
+// Custom exception 
 class UnskilledSwordJugglerException():
     IllegalStateException("Player hasnt learned to juggle")
