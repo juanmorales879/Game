@@ -44,6 +44,7 @@ private fun menu (menuItem:String){
     //val type = data[0]
     //val name = data[1]
     //val price = data[2]
+    //Kotlin allows for deestructuring
     val (type,name,price) = menuItem.split(',')
     val message = "Madrigal buys $name ($type) for $price"
     println(message)
