@@ -6,7 +6,7 @@ fun main() {
     //using the safe call operator
     var beverage = readLine()?.replaceFirstChar { it.uppercase() }
     // beverage = null
-    println(beverage)
+    //println(beverage)
 
     // option 1 for dealing with null
     var beverage2 = readLine()?.let {
@@ -19,9 +19,9 @@ fun main() {
 
     val beverageServed: String = beverage ?: "Buttered Ale"
 
-    println(beverage2)
+    //println(beverage2)
 
-    // option 2 for dealing with null
+    // option 2 for dealing with null, test
 
     if (beverage != null) {
         beverage = beverage.capitalize()
@@ -48,8 +48,25 @@ private fun menu (menuItem:String){
     val (type,name,price) = menuItem.split(',')
     val message = "Madrigal buys $name ($type) for $price"
     println(message)
+    val phrase = if (name == "Dragon's Breath"){
+        "Madrigal exclaims ${toSpeak("Ah, delicious $name!")}"
+    } else{
+        "Thanks for $name"
+    }
+    println(phrase)
+
+}
 
 
+private fun toSpeak(phrase: String) = phrase.replace(Regex( "[aeiouAEIOU]")) {
+    when (it.value) {
+        "a","A" -> "4"
+        "e","E" -> "3"
+        "i","I" -> "1"
+        "o","O" -> "0"
+        "u","U" -> "|_|"
+        else -> it.value
+    }
 }
 
 
