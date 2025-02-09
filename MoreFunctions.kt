@@ -8,7 +8,7 @@ fun main() {
         letter == 's'
     })
 
-    // this function accepts to arguments and return a string
+    // this function accepts two arguments and return a string
     val greeting : (String) -> String = { argument->
         val year = 2024
         "Welcome to anonymous function ($year, $argument)"
