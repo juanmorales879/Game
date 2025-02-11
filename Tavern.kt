@@ -21,7 +21,7 @@ fun main() {
 
     //println(beverage2)
 
-    // option 2 for dealing with null, testing
+    // option 2 for dealing with null, testing 2
 
     if (beverage != null) {
         beverage = beverage.capitalize()
