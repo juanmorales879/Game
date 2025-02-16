@@ -1,4 +1,5 @@
 import kotlin.math.roundToInt
+import java.io.File
 
 const val TAVERN_NAME1 = "Taernyl's Folly"
 var playerGold = 10
@@ -7,6 +8,9 @@ var gallonsAvailable = 5
 var pintGallons = 0.125
 //val patronList: List<String> = listOf("Eli","Sophie","Murdoc")
 val patronList: MutableList<String> = mutableListOf("Eli","Sophie","Mordoc")
+val menuList = File("out/data/Menu.txt")
+    .readText()
+    .split("\n")
 val readOnlyPatronList = patronList.toList()
 
 
@@ -33,8 +37,11 @@ fun main(args: Array<String>) {
 
     patronList.forEachIndexed { index, patron ->
         println("Good evening, $patron - you're #${index + 1} in line.")
-        placeOrder(patron, "shandy,Dragon's Breath,5.91,10")
+        placeOrder(patron, menuList.shuffled().first())
     }
+
+
+
 
 }
 fun performPurchase(price:Double, pintSold:Int):Boolean {
@@ -76,11 +83,11 @@ private fun toDragonSpeak(phrase: String) = phrase.replace(Regex( "[aeiouAEIOU]"
 }
 private fun placeOrder(patronName:String, menuData: String):Boolean
 {
-    val ( type, name, price,pintsSold) = menuData.split(',')
+    val ( type, name, price) = menuData.split(',')
 
-    if (!performPurchase(price.toDouble(),pintsSold.toInt())){
-        return false
-    }
+    //if (!performPurchase(price.toDouble(),pintsSold.toInt())){
+     //   return false
+    //}
     val indexOfApostrophe = TAVERN_NAME1.indexOf('\'')
     val tavernMaster = TAVERN_NAME1.substring(0 until indexOfApostrophe)
     println("$patronName speaks with $tavernMaster about their order.")
