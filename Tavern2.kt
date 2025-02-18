@@ -8,6 +8,8 @@ var gallonsAvailable = 5
 var pintGallons = 0.125
 //val patronList: List<String> = listOf("Eli","Sophie","Murdoc")
 val patronList: MutableList<String> = mutableListOf("Eli","Sophie","Mordoc")
+val lastName = listOf("Ironfoot", "Fernsworth", "Baggins")
+
 val menuList = File("out/data/Menu.txt")
     .readText()
     .split("\n")
@@ -17,6 +19,8 @@ val readOnlyPatronList = patronList.toList()
 // patronList[4]
 //patronList.getOrElse(4) {Unknown patron}
 // val fifthPatron = patronList.getOrNull(4) ?: "Unknown Patron"
+//Sets
+//val planets = setOf("Mercury", "Venus", "Earth")
 
 
 fun main(args: Array<String>) {
@@ -35,10 +39,21 @@ fun main(args: Array<String>) {
         println("The tavern master says: Nay, they departed hours ago.")
     }
 
+/*
     patronList.forEachIndexed { index, patron ->
         println("Good evening, $patron - you're #${index + 1} in line.")
         placeOrder(patron, menuList.shuffled().first())
     }
+
+ */
+
+    (0..9).forEach {
+        val first = patronList.shuffled().first()
+        val last = lastName.shuffled().first()
+        val name = "$first $last"
+        println(name)
+    }
+
 
 
 
