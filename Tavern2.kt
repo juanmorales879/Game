@@ -9,6 +9,8 @@ var pintGallons = 0.125
 //val patronList: List<String> = listOf("Eli","Sophie","Murdoc")
 val patronList: MutableList<String> = mutableListOf("Eli","Sophie","Mordoc")
 val lastName = listOf("Ironfoot", "Fernsworth", "Baggins")
+val uniquePatrons = mutableSetOf<String>()
+
 
 val menuList = File("out/data/Menu.txt")
     .readText()
@@ -51,10 +53,15 @@ fun main(args: Array<String>) {
         val first = patronList.shuffled().first()
         val last = lastName.shuffled().first()
         val name = "$first $last"
-        println(name)
+        uniquePatrons+=name
     }
 
-
+    var orderCount = 0
+    while (orderCount <= 9) {
+        placeOrder(uniquePatrons.shuffled().first(),
+            menuList.shuffled().first())
+        orderCount++
+    }
 
 
 
@@ -105,10 +112,9 @@ private fun placeOrder(patronName:String, menuData: String):Boolean
     //}
     val indexOfApostrophe = TAVERN_NAME1.indexOf('\'')
     val tavernMaster = TAVERN_NAME1.substring(0 until indexOfApostrophe)
-    println("$patronName speaks with $tavernMaster about their order.")
+    println("$patronName speaks with $tavernMaster about their order")
 
-
-    val message = "$patronName buys a $name ($type) for $price."
+    val message = "$patronName buys a $name ($type) for $price"
     println(message)
     //performPurchase(price.toDouble(),pintsSold.toInt())
 
